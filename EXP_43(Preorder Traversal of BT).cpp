@@ -1,4 +1,6 @@
-// C++ program for different tree traversals
+
+
+	// C++ program for different tree traversals
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -18,20 +20,20 @@ Node* newNode(int data)
 	return temp;
 }
 
-// Given a binary tree, print its nodes in inorder
-void printInorder(struct Node* node)
+// Given a binary tree, print its nodes in preorder
+void printPreorder(struct Node* node)
 {
 	if (node == NULL)
 		return;
 
-	// First recur on left child
-	printInorder(node->left);
-
-	// Then print the data of node
+	// First print data of node
 	cout << node->data << " ";
 
-	// Now recur on right child
-	printInorder(node->right);
+	// Then recur on left subtree
+	printPreorder(node->left);
+
+	// Now recur on right subtree
+	printPreorder(node->right);
 }
 
 // Driver code
@@ -44,8 +46,8 @@ int main()
 	root->left->right = newNode(5);
 
 	// Function call
-	cout << "Inorder traversal of binary tree is \n";
-	printInorder(root);
+	cout << "Preorder traversal of binary tree is \n";
+	printPreorder(root);
 
 	return 0;
 }
